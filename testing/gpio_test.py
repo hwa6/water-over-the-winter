@@ -1,7 +1,8 @@
-import Rpi.GPIO as GPIO
+#!/usr/bin/env python
+import RPi.GPIO as GPIO
 import time
 
-pin = 19
+pin = 11
 
 print("Inside file")
 
