@@ -14,7 +14,7 @@ print("Beginning program")
 write_val = GPIO.LOW
 
 while True:
-    time.sleep(1)
+    time.sleep(3)
     GPIO.output(pin, write_val)
     print("Outputting {} to pin {}".format(write_val, pin))
     write_val ^= GPIO.HIGH
