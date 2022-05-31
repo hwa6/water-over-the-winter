@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import time
 import moisture_levels
 import watering_thresholds
+import logs
 
 #Threshold moisture value
 threshold = 50
@@ -52,6 +53,8 @@ GPIO.setup(valve_pin_D, GPIO.OUT, initial=GPIO.LOW)
 while True:
     moisture_readings = [0] * 4
     thresholds = [0] * 4
+    log_needed = False
+    watered_plants = []
 
     print('Reading from moisture sensors')
     for i in range (0,4):
@@ -63,8 +66,16 @@ while True:
     thresholds = watering_thresholds.get()
     print(thresholds)
     print("Determining if water dispensation is neccesary")
+    moisture_readings = [48 , 53, 52, 50]
+    thresholds = [60, 40, 40, 40]
     for i in range (0,4):
         if(moisture_readings[i]<thresholds[i]):
+            log_needed = True
+            watered_plants.append(i)
             print('Watering plant {0}'.format(i+1))
             GPIO.output(valve_pins[i], GPIO.HIGH)
+    if(log_needed):
+        logs.log(watered_plants)
+    else:
+        print("No watering neccesary. Entering hibernation")
     time.sleep(180)
