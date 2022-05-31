@@ -16,8 +16,15 @@ client = MongoClient(MONGODB_URI)
 db=client.wateroverthewinter
 
 def get():
+    status = True
     thresholds = [0]*4;
     for i in range(0,4):
         result = db.plants.find_one({'id': i})
+        if(result is None):
+            status = False
         thresholds[i] = result.get('threshold')
+    if(status == True):
+        print("Read Succesful")
+    else:
+        print("Failure on Attempted Read")
     return thresholds

@@ -14,8 +14,15 @@ MONGODB_URI = (os.environ['MONGODB_URI'])
 client = MongoClient(MONGODB_URI)
 db=client.wateroverthewinter
 
-
 def update(readings):
+    status = True
     for i in range(0,4):
-        db.plants.update_one({'id': i}, {'$set':{'moisture_level':readings[i]}})
+        result = db.plants.update_one({'id': i}, {'$set':{'moisture_level':readings[i]}})
+        if(result.matched_count <= 0):
+            status = False
+    if(status == True):
+        print("Update Succesful")
+    else:
+        print("Failure on Attempted Update")
+        
 
