@@ -17,3 +17,9 @@ db=client.wateroverthewinter
 ##pprint(serverStatusResult)
 result = db.plants.find_one({'id': 0})
 pprint(result)
+
+db.plants.update_one({'id': 0}, {'$set':{'moisture_level':500}})
+result = db.plants.find_one({'id': 0})
+pprint(result)
+
+db.plants.update_one({'id': 0}, {'$set':{'moisture_level':1000}})
