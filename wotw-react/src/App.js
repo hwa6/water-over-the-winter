@@ -5,6 +5,8 @@ import palmtree from './images/palmtree.png';
 import plant from './images/plant.png';
 import React from 'react';
 import './App.css';
+import Card from './components/Card';
+import CardHolder from './components/CardHolder';
 
 function App() {
   return (
@@ -12,37 +14,6 @@ function App() {
       <Header></Header>
       <CenterContent></CenterContent>
       <Footer></Footer>
-    </div>
-  );
-}
-
-function PlantCard(props) {
-  return (
-    <div className="Card">
-      <div className="Plant-image-holder">
-        <img className="Plant-image" src={props.plantPhoto}></img>
-      </div>
-      <h1 className="Card-title-text">Plant {props.plantID}</h1>
-      <p1 className="Card-body-text">Current Moisture Reading: </p1>
-      <p1 className="Card-body-text">Current Moisture Threshold: </p1>
-      <div>
-        <p1 className="Card-body-text">New Threshold: </p1>
-        <input className="Card-input"></input>
-      </div>
-      <button className="App-button-update" onClick={clickedButton}>
-        Update Threshold
-      </button>
-    </div>
-  );
-}
-
-function CardHolder(props) {
-  return (
-    <div className="CardHolder">
-      <PlantCard plantID="1" plantPhoto={pottedplant}></PlantCard>
-      <PlantCard plantID="2" plantPhoto={cactus}></PlantCard>
-      <PlantCard plantID="3" plantPhoto={flower}></PlantCard>
-      <PlantCard plantID="4" plantPhoto={palmtree}></PlantCard>
     </div>
   );
 }
