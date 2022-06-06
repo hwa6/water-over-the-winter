@@ -14,6 +14,17 @@ router.get('/', function (req, res, next) {
   });
 });
 
+//get an individual plant. return JSON data
+router.get('/:id', function (req, res, next) {
+  Plant.find({ id: req.params.id }, { _id: 0, __v: 0 }, function (err, plant) {
+    if (err) {
+      return res.status(400).send('Error with get');
+    } else {
+      res.status(201).send(plant);
+    }
+  });
+});
+
 //update a plant threshold.
 router.put('/:id', function (req, res, next) {
   //find plant with desired id
