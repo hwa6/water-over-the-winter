@@ -9,40 +9,21 @@ import palmtree from '../images/palmtree.png';
 //TODO: Add margin to top of card such that it still has spacing when opened on mobile/small screens
 
 class CardHolder extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { apiResponse: '' };
+  }
   componentDidMount() {
-    var data = JSON.stringify({
-      collection: 'plants',
-      database: 'wateroverthewinter',
-      dataSource: '264FinalProject',
-      projection: {
-        _id: 1,
-      },
-    });
-
-    var config = {
-      method: 'post',
-      url: 'https://data.mongodb-api.com/app/data-lbnlh/endpoint/data/beta/action/findOne',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Request-Headers': '*',
-        'api-key':
-          'dl2EuUUMSkyvASl61mwtenn3dE0NTqO2kHJhUbfNzmruBwrdYISI4r0Ndt6BLmEU',
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    fetch('http://localhost:9000/testAPI')
+      .then((res) => res.text())
+      .then((res) => this.setState({ apiResponse: res }));
+    console.log('COMPONENT DID MOUNT');
   }
 
   render() {
     return (
       <div className="CardHolder">
+        <h1 className=".Card-body-text">{this.state.apiResponse}</h1>
         <Card plantID="1" plantPhoto={pottedplant}></Card>
         <Card plantID="2" plantPhoto={cactus}></Card>
         <Card plantID="3" plantPhoto={flower}></Card>
