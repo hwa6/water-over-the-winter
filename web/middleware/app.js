@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var testAPIRouter = require('./routes/testAPI');
+var plantAPIRouter = require('./routes/plantAPI');
 
 //dotenv.config({ path: '.env.example' });
 dotenv.config({ path: '.env' });
@@ -17,17 +17,21 @@ dotenv.config({ path: '.env' });
 /**
  * Connect to MongoDB.
  */
-mongoose.Promise = global.Promise;
+const url = process.env.MONGODB_URI;
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
-mongoose.connection.on('error', (err) => {
-  console.error(err);
-  console.log(
-    '%s MongoDB connection error. Please make sure MongoDB is running.',
-    chalk.red('✗')
-  );
-  process.exit();
-});
+const connectionParams = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+mongoose
+  .connect(url, connectionParams)
+  .then(() => {
+    console.log('Connected to the database ');
+  })
+  .catch((err) => {
+    console.error(`Error connecting to the database. n${err}`);
+  });
 
 var app = express();
 
@@ -44,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/testAPI', testAPIRouter);
+app.use('/plants', plantAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

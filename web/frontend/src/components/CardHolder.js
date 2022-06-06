@@ -14,10 +14,10 @@ class CardHolder extends React.Component {
     this.state = { apiResponse: '' };
   }
   componentDidMount() {
-    fetch('http://localhost:9000/testAPI')
+    fetch('http://localhost:9000/plants')
       .then((res) => res.text())
       .then((res) => this.setState({ apiResponse: res }));
-    console.log('COMPONENT DID MOUNT');
+    console.log(this.state.apiResponse);
   }
 
   render() {
