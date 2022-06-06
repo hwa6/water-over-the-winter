@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import Card from './Card';
 import pottedplant from '../images/pottedplant.png';
 import cactus from '../images/cactus.png';
