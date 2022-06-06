@@ -29,15 +29,12 @@ class CardHolder extends React.Component {
           plant3: jsonData[2],
           plant4: jsonData[3],
         });
-        console.log(JSON.stringify(jsonData));
       });
   }
 
   render() {
     return (
       <div className="CardHolder">
-        <h1 className=".Card-body-text">{this.state.apiResponse}</h1>
-        <h1 className=".Card-body-text">{this.state.otherResponse}</h1>
         <Card
           plantID="1"
           plantPhoto={pottedplant}

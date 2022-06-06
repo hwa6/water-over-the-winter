@@ -3,10 +3,21 @@ import React from 'react';
 class Card extends React.Component {
   constructor(props) {
     super(props);
-    this.reset();
+    this.state = {
+      inputValue: '',
+      threshold_state: '',
+    };
   }
-  reset() {
-    this.state = { inputValue: '' };
+
+  componentDidMount() {
+    let url = 'http://localhost:9000/plants/' + (this.props.plantID - 1);
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then((jsonData) => {
+        this.setState({ threshold_state: jsonData[0].threshold });
+      });
   }
   render() {
     return (
@@ -20,10 +31,10 @@ class Card extends React.Component {
         </div>
         <h1 className="Card-title-text">Plant {this.props.plantID}</h1>
         <p1 className="Card-body-text">
-          Current Moisture Reading: {this.props.moistureLevel}{' '}
+          Current Moisture Reading: {this.props.moistureLevel}
         </p1>
         <p1 className="Card-body-text">
-          Current Moisture Threshold: {this.props.moistureThreshold}{' '}
+          Current Moisture Threshold: {this.state.threshold_state}
         </p1>
         <div>
           <p1 className="Card-body-text">New Threshold: </p1>
@@ -56,7 +67,7 @@ class Card extends React.Component {
       body: JSON.stringify({
         threshold: this.state.inputValue,
       }),
-    });
+    }).then(this.setState({ threshold_state: this.state.inputValue }));
   }
 }
 
