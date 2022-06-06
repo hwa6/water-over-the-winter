@@ -5,7 +5,11 @@ class Card extends React.Component {
     return (
       <div className="Card">
         <div className="Plant-image-holder">
-          <img className="Plant-image" src={this.props.plantPhoto}></img>
+          <img
+            className="Plant-image"
+            src={this.props.plantPhoto}
+            alt="Henry's Alternate Text"
+          ></img>
         </div>
         <h1 className="Card-title-text">Plant {this.props.plantID}</h1>
         <p1 className="Card-body-text">Current Moisture Reading: </p1>
@@ -22,6 +26,8 @@ class Card extends React.Component {
   }
 }
 
-function clickedButton() {}
+function clickedButton() {
+  console.log('made it here!');
+}
 
 export default Card;

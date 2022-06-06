@@ -1,11 +1,6 @@
-import pottedplant from './images/pottedplant.png';
-import cactus from './images/cactus.png';
-import flower from './images/flower.png';
-import palmtree from './images/palmtree.png';
 import plant from './images/plant.png';
 import React from 'react';
 import './App.css';
-import Card from './components/Card';
 import CardHolder from './components/CardHolder';
 
 function App() {
@@ -30,7 +25,7 @@ function PageTitle(props) {
 function Header(props) {
   return (
     <div className="App-header">
-      <img className="App-logo" src={plant}></img>
+      <img className="App-logo" src={plant} alt="Henry's Alternate Text"></img>
       <button className="App-button-logs">Logs</button>
     </div>
   );
@@ -53,10 +48,6 @@ function Footer(props) {
       </button>
     </div>
   );
-}
-
-function clickedButton() {
-  console.log('made it here!');
 }
 
 function sourceCode() {
