@@ -19,13 +19,12 @@ class CardHolder extends React.Component {
     };
   }
   componentDidMount() {
-    const that = this;
     fetch('http://localhost:9000/plants')
       .then(function (response) {
         return response.json();
       })
-      .then(function (jsonData) {
-        that.setState({
+      .then((jsonData) => {
+        this.setState({
           plant1: jsonData[0],
           plant2: jsonData[1],
           plant3: jsonData[2],
