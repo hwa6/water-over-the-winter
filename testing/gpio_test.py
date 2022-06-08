@@ -2,11 +2,11 @@
 import RPi.GPIO as GPIO
 import time
 
-pin = 11
+pin = 2
 
 print("Inside file")
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 GPIO.setup(pin, GPIO.OUT, initial=GPIO.HIGH)
 

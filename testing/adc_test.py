@@ -32,16 +32,17 @@ def read(sensor_id):
     else:
         print('Invalid sensor number provided.')
 
+    print('Sensor:', sensor_id)
     print('Raw ADC Value: ', chan.value)
     print('ADC Voltage: ' + str(chan.voltage) + 'V')
     high = 2.8
     low = 1.7
-    adjusted_val = (chan.voltage-low) / (high-low) * 100
+    adjusted_val = int((chan.voltage-low) / (high-low) * 100)
     normalized_val = 100 - abs(adjusted_val)
-    if(normalized_val < 0):
-        normalized_val = 0.00
-    if(normalized_val >100):
-        normalized_val = 100.00
+    #if(normalized_val < 0):
+        #normalized_val = 0.00
+    #if(normalized_val >100):
+        #normalized_val = 100.00
     if(chan.voltage<1):
         print('Error. Are you sure sensor is connected properly?')
     else:
@@ -49,5 +50,5 @@ def read(sensor_id):
 if __name__ == "__main__":
     read(1)
     read(2)
-    read(3)
-    read(4)
+    #read(3)
+    #read(4)

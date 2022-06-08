@@ -2,6 +2,7 @@
 import RPi.GPIO as GPIO
 import time
 import moisture_levels
+import sensors
 import watering_thresholds
 import logs
 
@@ -9,16 +10,16 @@ import logs
 interval = 1
 
 ##Configuring board numbering scheme
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 #Assiging pin values
 #Pins for water pumps
-pump_pin_A = 32
-pump_pin_B = 36
-pump_pin_C = 38
-pump_pin_D = 40
-pump_pins = [32,36,38,40]
+pump_pin_A = 2
+pump_pin_B = 3
+pump_pin_C = 4
+pump_pin_D = 14
+pump_pins = [2,3,4,14]
 
 #Configuring GPIO pin types
 #Water pumps are outputs
@@ -36,7 +37,7 @@ while True:
 
     print('Reading from moisture sensors')
     for i in range (0,4):
-        moisture_readings[i] = sensors.read(i)
+        moisture_readings[i] = sensors.read(i+1)
     print(moisture_readings)
     print('Updating database with sensor readings')
     moisture_levels.update(moisture_readings)
@@ -58,4 +59,4 @@ while True:
         logs.log(watered_plants)
     else:
         print("No watering neccesary. Entering hibernation")
-    time.sleep(180)
+    time.sleep(600)
