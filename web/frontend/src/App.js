@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import CardHolder from './components/CardHolder';
 
+import { Link } from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
@@ -26,7 +28,9 @@ function Header(props) {
   return (
     <div className="App-header">
       <img className="App-logo" src={plant} alt="Henry's Alternate Text"></img>
-      <button className="App-button-logs">Logs</button>
+      <button className="App-button-logs" onClick={logs}>
+        Logs
+      </button>
     </div>
   );
 }
@@ -54,4 +58,7 @@ function sourceCode() {
   window.location.href = 'https://github.com/hwa6/water-over-the-winter';
 }
 
+function logs() {
+  window.location.href = 'http://localhost:3000/logs';
+}
 export default App;
