@@ -45,7 +45,4 @@ function sourceCode() {
   window.location.href = 'https://github.com/hwa6/water-over-the-winter';
 }
 
-function logs() {
-  window.location.href = 'http://localhost:3000/logs';
-}
 export default App;
