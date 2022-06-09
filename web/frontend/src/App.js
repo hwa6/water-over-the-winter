@@ -6,7 +6,7 @@ import Header from './components/Header';
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+      <Header link="/logs" title="Logs"></Header>
       <CenterContent></CenterContent>
       <Footer></Footer>
     </div>

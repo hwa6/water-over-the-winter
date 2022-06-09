@@ -15,8 +15,8 @@ export default class Header extends React.Component {
           src={plant}
           alt="Henry's Alternate Text"
         ></img>
-        <Link to="/logs">
-          <button className="App-button-logs">Logs</button>
+        <Link to={this.props.link}>
+          <button className="App-button-logs">{this.props.title}</button>
         </Link>
       </div>
     );
