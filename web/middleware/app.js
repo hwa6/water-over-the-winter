@@ -8,8 +8,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var apiRouter = require('./routes/api');
+var plantsRouter = require('./routes/plants');
+var logsRouter = require('./routes/logs');
 
 //dotenv.config({ path: '.env.example' });
 dotenv.config({ path: '.env' });
@@ -47,8 +47,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/plants', apiRouter);
+app.use('/plants', plantsRouter);
+app.use('/logs', logsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
