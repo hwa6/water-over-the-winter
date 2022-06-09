@@ -28,9 +28,9 @@ function Header(props) {
   return (
     <div className="App-header">
       <img className="App-logo" src={plant} alt="Henry's Alternate Text"></img>
-      <button className="App-button-logs" onClick={logs}>
-        Logs
-      </button>
+      <Link to="/logs">
+        <button className="App-button-logs">Logs</button>
+      </Link>
     </div>
   );
 }
