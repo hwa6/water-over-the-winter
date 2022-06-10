@@ -82,6 +82,22 @@
   margin-right: 10px;
 }
 
+.App-log-holder {
+  flex: 10;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #252728;
+  overflow-y: scroll;
+}
+
+.App-log {
+  background-color: #393a3e;
+  padding: 10px 12px;
+  margin: 10px;
+  border-radius: 24px;
+}
+
 .App-logo {
   width: 80px;
   height: 80px;
@@ -121,4 +137,5 @@
   flex: 10;
   display: flex;
   flex-direction: column;
+  color: white;
 }
