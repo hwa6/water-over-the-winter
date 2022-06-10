@@ -1,21 +1,31 @@
 import React from 'react';
 import Log from './Log';
+import moment from 'moment';
 
 class LogHolder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       logs: [],
+      test: 'Hello',
     };
   }
 
-  componentDidMount() {
-    fetch('http://localhost:9000/logs')
-      .then(function (response) {
+  async componentDidMount() {
+    await fetch('http://localhost:9000/logs')
+      .then((response) => {
         return response.json();
       })
       .then((jsonData) => {
-        this.setState({ logs: jsonData });
+        this.setState({ logs: jsonData }, function () {
+          var local = this.state.logs;
+          for (var i in local) {
+            local[i].date = moment(local[i].date).format(
+              'MMMM Do YYYY, h:mm:ss a'
+            );
+          }
+          this.setState({ logs: local });
+        });
       });
   }
 
