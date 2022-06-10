@@ -12,7 +12,7 @@ const Plant = mongoose.model('Plant', plantSchema);
 
 const logSchema = new mongoose.Schema({
   message: { type: String },
-  Date: { type: Date, default: Date.now, required: false },
+  date: { type: Date, default: Date.now, required: false },
 });
 
 const Log = mongoose.model('Log', logSchema);
