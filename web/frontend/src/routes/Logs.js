@@ -8,11 +8,17 @@ export default function Logs() {
     <div className="App">
       <Header link="/" title="Back" />
       <LogHolder />
-      <Footer text="Clear Logs" onClick={sourceCode} />
+      <Footer text="Clear Logs" onClick={clearLogs} />
     </div>
   );
 }
 
-function sourceCode() {
-  window.location.href = 'https://github.com/hwa6/water-over-the-winter';
+function clearLogs() {
+  fetch('http://localhost:9000/logs', {
+    method: 'delete',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+    },
+  });
 }
