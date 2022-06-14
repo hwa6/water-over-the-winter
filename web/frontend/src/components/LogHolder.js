@@ -21,7 +21,7 @@ class LogHolder extends React.Component {
           var local = this.state.logs;
           for (var i in local) {
             local[i].date = moment(local[i].date).format(
-              'MMMM Do YYYY, h:mm:ss a'
+              'MMMM Do YYYY, h:mm a'
             );
           }
           this.setState({ logs: local });

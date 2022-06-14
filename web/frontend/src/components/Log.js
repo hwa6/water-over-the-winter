@@ -4,7 +4,7 @@ export default class Log extends React.Component {
   render() {
     return (
       <div className="App-log">
-        Date: {this.props.date} Message: {this.props.message}
+        {this.props.message} on {this.props.date}
       </div>
     );
   }
