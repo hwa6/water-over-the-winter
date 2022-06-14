@@ -7,7 +7,6 @@ class LogHolder extends React.Component {
     super(props);
     this.state = {
       logs: [],
-      test: 'Hello',
     };
   }
 
