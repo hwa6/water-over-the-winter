@@ -3,10 +3,12 @@ import plant from '../images/plant.png';
 import { Link } from 'react-router-dom';
 
 export default class Header extends React.Component {
+  //we don't need a constructor here, since we don't do anything special w state
+  /*
   constructor(props) {
     super(props);
   }
-
+*/
   render() {
     return (
       <div className="App-header">

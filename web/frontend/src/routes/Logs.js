@@ -1,23 +1,14 @@
 import React from 'react';
 import Header from '../components/Header';
 import LogHolder from '../components/LogHolder';
+import Footer from '../components/Footer';
 
 export default function Logs() {
   return (
     <div className="App">
       <Header link="/" title="Back" />
-      <LogHolder></LogHolder>
-      <Footer />
-    </div>
-  );
-}
-
-function Footer(props) {
-  return (
-    <div className="App-footer">
-      <button className="App-button-sourcecode" onClick={sourceCode}>
-        Source Code
-      </button>
+      <LogHolder />
+      <Footer text="Clear Logs" onClick={sourceCode} />
     </div>
   );
 }

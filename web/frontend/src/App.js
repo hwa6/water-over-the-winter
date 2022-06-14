@@ -2,13 +2,14 @@ import React from 'react';
 import './App.css';
 import CardHolder from './components/CardHolder';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
       <Header link="/logs" title="Logs" />
       <CenterContent />
-      <Footer />
+      <Footer text="Source Code" onClick={sourceCode} />
     </div>
   );
 }
@@ -27,16 +28,6 @@ function CenterContent(props) {
     <div className="App-centercontent">
       <PageTitle></PageTitle>
       <CardHolder></CardHolder>
-    </div>
-  );
-}
-
-function Footer(props) {
-  return (
-    <div className="App-footer">
-      <button className="App-button-sourcecode" onClick={sourceCode}>
-        Source Code
-      </button>
     </div>
   );
 }
