@@ -39,8 +39,8 @@ def read(sensor_id):
     low = 1.7
     adjusted_val = int((chan.voltage-low) / (high-low) * 100)
     normalized_val = 100 - abs(adjusted_val)
-    #if(normalized_val < 0):
-        #normalized_val = 0.00
+    if(normalized_val < 0):
+        normalized_val = 0
     #if(normalized_val >100):
         #normalized_val = 100.00
     if(chan.voltage<1):
