@@ -5,8 +5,6 @@ import cactus from '../images/cactus.png';
 import flower from '../images/flower.png';
 import palmtree from '../images/palmtree.png';
 
-//TODO: Add margin to top of card such that it still has spacing when opened on mobile/small screens
-
 class CardHolder extends React.Component {
   constructor(props) {
     super(props);
