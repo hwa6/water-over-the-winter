@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/plants', plantsRouter);
 app.use('/logs', logsRouter);
-app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
