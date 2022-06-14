@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header link="/logs" title="Logs" />
       <CenterContent />
-      <Footer text="Source Code" onClick={sourceCode} />
+      <Footer link="/" text="Source Code" onClick={sourceCode} />
     </div>
   );
 }
