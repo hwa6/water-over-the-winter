@@ -8,7 +8,7 @@ export default function Logs() {
     <div className="App">
       <Header link="/" title="Back" />
       <LogHolder />
-      <Footer text="Clear Logs" onClick={clearLogs} />
+      <Footer link="/logs" text="Clear Logs" onClick={clearLogs} />
     </div>
   );
 }
@@ -20,5 +20,5 @@ function clearLogs() {
       Accept: 'application/json, text/plain, */*',
       'Content-Type': 'application/json',
     },
-  });
+  }).then(window.location.reload());
 }
