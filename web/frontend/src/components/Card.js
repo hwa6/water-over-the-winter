@@ -58,7 +58,7 @@ class Card extends React.Component {
     this.setState({ inputValue: val });
   }
   clickedButton(id) {
-    fetch('http://localhost:9000/plants/' + id, {
+    fetch('plants/' + id, {
       method: 'put',
       headers: {
         Accept: 'application/json, text/plain, */*',
