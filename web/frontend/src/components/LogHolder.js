@@ -11,7 +11,7 @@ class LogHolder extends React.Component {
   }
 
   async componentDidMount() {
-    await fetch('http://localhost:9000/logs')
+    await fetch('/logs')
       .then((response) => {
         return response.json();
       })

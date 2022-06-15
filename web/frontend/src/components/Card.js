@@ -10,7 +10,7 @@ class Card extends React.Component {
   }
 
   componentDidMount() {
-    let url = 'http://localhost:9000/plants/' + (this.props.plantID - 1);
+    let url = '/plants/' + (this.props.plantID - 1);
     fetch(url)
       .then(function (response) {
         return response.json();

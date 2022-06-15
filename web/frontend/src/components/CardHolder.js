@@ -16,7 +16,7 @@ class CardHolder extends React.Component {
     };
   }
   componentDidMount() {
-    fetch('http://localhost:9000/plants')
+    fetch('/plants')
       .then(function (response) {
         return response.json();
       })
