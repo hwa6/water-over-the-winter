@@ -2,7 +2,8 @@
 import RPi.GPIO as GPIO
 import time
 
-pin = 2
+##pump1: 4 pump2: 17 pump3: 27 pump4: 22
+pin = 22
 
 print("Inside file")
 
