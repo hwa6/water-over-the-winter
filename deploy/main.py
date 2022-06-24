@@ -15,11 +15,11 @@ GPIO.setwarnings(False)
 
 #Assiging pin values
 #Pins for water pumps
-pump_pin_A = 2
-pump_pin_B = 3
-pump_pin_C = 4
-pump_pin_D = 14
-pump_pins = [2,3,4,14]
+pump_pin_A = 4
+pump_pin_B = 17
+pump_pin_C = 27
+pump_pin_D = 22
+pump_pins = [4,17,27,22]
 
 #Configuring GPIO pin types
 #Water pumps are outputs
