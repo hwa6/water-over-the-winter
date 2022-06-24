@@ -1,3 +1,3 @@
 # The Water Over the Winter Project
 
-The Water Over the Winter Project at its' core is an IOT device paired with a web front end.
+The Water Over the Winter Project is an IOT device designed to automate plant watering.
