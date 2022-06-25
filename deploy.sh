@@ -1,5 +1,4 @@
 #!/bin/bash
-ls
 echo "Pulling latest software."
 cd water-over-the-winter
 git pull
