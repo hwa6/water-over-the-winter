@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import time
+import frequency
 import moisture_levels
 import sensors
 import watering_thresholds
 import logs
 
-#Duration of watering burst
-interval = 1
+#Get duration of watering burst
+interval = frequency.read()
 
 ##Configuring board numbering scheme
 GPIO.setmode(GPIO.BCM)
