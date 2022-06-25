@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo reboot
+if[['git status']] then
+    echo 'hello there'
