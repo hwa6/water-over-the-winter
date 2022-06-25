@@ -1,1 +1,1 @@
-sudo shutdown -h now
+sudo reboot
