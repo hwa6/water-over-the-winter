@@ -1,6 +1,11 @@
 #!/usr/bin/env python
+
+#library imports
 import RPi.GPIO as GPIO
 import time
+import os
+import subprocess
+#file imports
 import config
 import moisture_levels
 import sensors
@@ -8,10 +13,10 @@ import watering_thresholds
 import logs
 
 #Get duration of watering burst, frequency of iteration
-frequency = config.frequency()
 duration = config.duration()
+frequency = config.frequency()
 
-##Configuring board numbering scheme
+#Configuring board numbering scheme
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
@@ -36,6 +41,9 @@ while True:
     thresholds = [0] * 4
     log_needed = False
     watered_plants = []
+    #Look for software update
+    subprocess.call(['sh','./reboot.sh'])
+    #os.system()
 
     print('Reading from moisture sensors')
     for i in range (0,4):
@@ -47,8 +55,6 @@ while True:
     thresholds = watering_thresholds.get()
     print(thresholds)
     print("Determining if water dispensation is neccesary")
-    #moisture_readings = [48 , 53, 52, 50]
-    #thresholds = [60, 40, 40, 40]
     for i in range (0,4):
         if(moisture_readings[i]<thresholds[i]):
             log_needed = True
