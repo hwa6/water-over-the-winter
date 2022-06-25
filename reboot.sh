@@ -1,3 +1,5 @@
 #!/bin/bash
-if[['git status']] then
-    echo 'hello there'
+echo 'Checking for potential update'
+if git status; then
+    echo 'Update needed. Rebooting.'
+fi
