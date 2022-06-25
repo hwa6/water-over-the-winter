@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import time
-import frequency
+import config
 import moisture_levels
 import sensors
 import watering_thresholds
 import logs
 
-#Get duration of watering burst
-interval = frequency.read()
+#Get duration of watering burst, frequency of iteration
+frequency = config.frequency()
+duration = config.duration()
 
 ##Configuring board numbering scheme
 GPIO.setmode(GPIO.BCM)
@@ -54,10 +55,10 @@ while True:
             watered_plants.append(i)
             print('Watering plant {0}'.format(i+1))
             GPIO.output(pump_pins[i], GPIO.HIGH)
-            time.sleep(interval)
+            time.sleep(duration)
             GPIO.output(pump_pins[i], GPIO.LOW)
     if(log_needed):
         logs.log(watered_plants)
     else:
         print("No watering neccesary. Entering hibernation")
-    time.sleep(600)
+    time.sleep(frequency*60)
