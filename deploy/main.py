@@ -11,9 +11,7 @@ import sensors
 import watering_thresholds
 import logs
 
-#Get duration of watering burst, frequency of iteration
-duration = config.duration()
-frequency = config.frequency()
+
 
 #Configuring board numbering scheme
 GPIO.setmode(GPIO.BCM)
@@ -42,6 +40,10 @@ while True:
     watered_plants = []
     #Look for software update
     subprocess.call(['sh','./reboot.sh'])
+
+    #Get duration of watering burst, frequency of iteration
+    duration = config.duration()
+    frequency = config.frequency()
 
     print('Reading from moisture sensors')
     for i in range (0,4):
