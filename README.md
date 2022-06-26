@@ -8,3 +8,4 @@ The web aspect of this project utilizes the MERN stack, with a MongoDB Atlas dat
 Heroku is used for deployment. \
 WOTW supports four seperate plants, and each watering system is individually controlled. This is achieved through a quad pump watering system, where each pump is responisble for a singular plant. \
 Relevant Screenshots:
+My LinkedIn:
