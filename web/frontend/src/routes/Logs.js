@@ -14,7 +14,7 @@ export default function Logs() {
 }
 
 function clearLogs() {
-  fetch('http://localhost:9000/logs', {
+  fetch('/logs', {
     method: 'delete',
     headers: {
       Accept: 'application/json, text/plain, */*',
