@@ -3,7 +3,6 @@
 #library imports
 import RPi.GPIO as GPIO
 import time
-import os
 import subprocess
 #file imports
 import config
@@ -43,7 +42,6 @@ while True:
     watered_plants = []
     #Look for software update
     subprocess.call(['sh','./reboot.sh'])
-    #os.system()
 
     print('Reading from moisture sensors')
     for i in range (0,4):
