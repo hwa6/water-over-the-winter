@@ -1,0 +1,12 @@
+[Unit]
+Description=Start WOTW Deployment After Internet Connection Established
+After=network-online.target
+
+[Service]
+User=pi
+ExecStart=/bin/bash /home/pi/water-over-the-winter/deploy.sh
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
